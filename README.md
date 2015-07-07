@@ -33,3 +33,8 @@ $ sudo ./postscript.sh
 ```sh
 $ sudo chroot target-rootfs passwd
 ```
+
+## Umount /dev
+```sh
+$ sudo umount target-rootfs/dev/
+```
