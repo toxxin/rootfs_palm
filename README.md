@@ -26,7 +26,7 @@ $ sudo LC_ALL=C LANGUAGE=C LANG=C chroot target-rootfs dpkg --configure -a
 
 ## Run postscript:
 ```sh
-$ sudo ./postscript.sh
+$ sudo ./postconfig.sh
 ```
 
 ## Set up root password:
