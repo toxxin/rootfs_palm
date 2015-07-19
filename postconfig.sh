@@ -33,10 +33,17 @@ echo 7:23:respawn:/sbin/getty -L ttyO2 115200 vt100 >> $filename
 filename=$TARGET_ROOTFS_DIR/etc/fstab
 echo /dev/mmcblk0p1 /boot vfat noatime 0 1 > $filename
 echo /dev/mmcblk0p2 / ext4 noatime 0 1 >> $filename
-#echo /dev/mmcblk0p3 /media/data ext4 noatime 0 1 >> $filename
 echo proc /proc proc defaults 0 0 >> $filename
 
 #Add the standard Debian non-free repositories useful to load
 #closed source firmware (i.e. WiFi dongle firmware)
 filename=$TARGET_ROOTFS_DIR/etc/apt/sources.list
 echo deb http://http.debian.net/debian/ wheezy main contrib non-free > $filename
+
+echo "Update packages"
+LC_ALL=C LANGUAGE=C LANG=C chroot $TARGET_ROOTFS_DIR apt-get update
+LC_ALL=C LANGUAGE=C LANG=C chroot $TARGET_ROOTFS_DIR apt-get upgrade
+LC_ALL=C LANGUAGE=C LANG=C chroot $TARGET_ROOTFS_DIR apt-get clean
+
+echo "Remove Qemu..."
+rm $TARGET_ROOTFS_DIR/usr/bin/qemu-arm-static
