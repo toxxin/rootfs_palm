@@ -16,6 +16,8 @@ echo nameserver 8.8.4.4 >> $filename
 
 #Default network interfaces
 filename=$TARGET_ROOTFS_DIR/etc/network/interfaces
+echo auto lo > $filename
+echo iface lo inet loopback >> $filename
 echo allow-hotplug eth0 >> $filename
 echo iface eth0 inet dhcp >> $filename
 #eth0 MAC address
