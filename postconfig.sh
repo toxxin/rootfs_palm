@@ -27,6 +27,10 @@ echo hwaddress ether 00:04:25:12:34:56 >> $filename
 filename=$TARGET_ROOTFS_DIR/etc/inittab
 echo 7:23:respawn:/sbin/getty -L ttyO2 115200 vt100 >> $filename
 
+#Default localhost name
+filename=$TARGET_ROOTFS_DIR/etc/hosts
+# add 127.0.0.1 boardname
+
 #Set rules to change wlan dongles
 #filename=$TARGET_ROOTFS_DIR/etc/udev/rules.d/70-persistent-net.rules
 #echo SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="*", ATTR{dev_id}=="0x0", ATTR{type}=="1", KERNEL=="wlan*", NAME="wlan0" > $filename
