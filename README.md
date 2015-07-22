@@ -38,3 +38,8 @@ $ sudo chroot target-rootfs passwd
 ```sh
 $ sudo umount target-rootfs/dev/
 ```
+
+## Install KDE minimum:
+```sh
+$ sudo apt-get install kde-plasma-desktop --no-install-recommends
+```
