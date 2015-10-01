@@ -34,6 +34,11 @@ $ sudo ./postconfig.sh
 $ sudo chroot target-rootfs passwd
 ```
 
+## Remove Qemu:
+```sh
+$ sudo rm target-rootfs/usr/bin/qemu-arm-static
+```
+
 ## Umount /dev
 ```sh
 $ sudo umount target-rootfs/dev/
