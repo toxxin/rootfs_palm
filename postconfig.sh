@@ -50,6 +50,3 @@ echo "Update packages"
 LC_ALL=C LANGUAGE=C LANG=C chroot $TARGET_ROOTFS_DIR apt-get update
 LC_ALL=C LANGUAGE=C LANG=C chroot $TARGET_ROOTFS_DIR apt-get upgrade
 LC_ALL=C LANGUAGE=C LANG=C chroot $TARGET_ROOTFS_DIR apt-get clean
-
-echo "Remove Qemu..."
-rm $TARGET_ROOTFS_DIR/usr/bin/qemu-arm-static
